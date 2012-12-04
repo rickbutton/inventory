@@ -33,21 +33,13 @@ private
     products = []
     json.each do |item|
       product = {
-        upc:     item["item"]["upc"].to_i,
-        name:   item["item"]["name"],
-        image:  item["item"]["productImageUrl"],
-        stores: [],
-        avg_price: 0
+        upc:        item["item"]["upc"].to_i,
+        name:       item["item"]["name"],
+        image:      item["item"]["productImageUrl"],
+        store_code: item["stores"][0]["storeId"],
+        price:      item["stores"][0]["price"].to_f,
+        in_stock: item["stores"][0]["stockStatus"].strip == "In stock" || item["stores"][0]["stockStatus"].strip == "Limited stock"
       }
-      item["stores"].each do |store|
-        product[:stores] << {
-          id:       store["storeId"],
-          price:    store["price"].to_f,
-          in_stock: store["stockStatus"].strip == "In stock" || store["stockStatus"].strip == "Limited stock"
-        }
-        product[:avg_price] += store["price"].to_f
-      end
-      product[:avg_price] /= item["storesWithinMiles"]["availableStoresNum"].to_f
       products << product
     end
     

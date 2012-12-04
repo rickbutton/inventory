@@ -11,15 +11,17 @@ describe Inventory::Walmart do
         products.should =~ [{:upc=>7239231921,
                       :name=>"Hawaiian Punch: Fruit Juicy Red Drink Mix, .74 Oz",
                       :image=>"http://i.walmartimages.com/i/p/00/07/23/92/31/0007239231921_215X215.jpg",
-                      :stores=>[{:id=>"2339", :price=>1.0, :in_stock=>true}],
-                      :avg_price=>1.0,
+                      :store_code=>"2339", 
+                      :price=>1.0, 
+                      :in_stock=>true,
                       :aisle=>"A14"},
                      
                      {:upc=>7239231925,
                       :name=>"Jel Sert Company: Berry Blue Typhoon Low Calorie Drink Mix Sugar Free Hawaiian Punch Singles To Go, .94 oz",
                       :image=> "http://i.walmartimages.com/i/p/00/07/23/92/31/0007239231925_215X215.jpg",
-                      :stores=>[{:id=>"2339", :price=>1.0, :in_stock=>true}],
-                      :avg_price=>1.0,
+                      :store_code=>"2339",
+                      :price=>1.0, 
+                      :in_stock=>true,
                       :aisle=>"A14"}
                     ]
       end
