@@ -1,17 +1,31 @@
 require 'open-uri'
 require "json"
+require "timeout"
 
 
 USER_AGENT = "walmart/1120 CFNetwork/548.1.4 Darwin/11.0.0"
+TIMEOUT_SECS = 5
+NUM_RETRIES = 3
+
 module Inventory
   class Walmart
     
     def self.fetch(store_id, *upcs)
       raise ArgumentError, "You must pass at least one UPC code into the fetch method" if upcs.empty?
+      retries = NUM_RETRIES
       begin
-        get_products(store_id, upcs)
+        Timeout::timeout(TIMEOUT_SECS) do
+          get_products(store_id, upcs)
+        end
       rescue OpenURI::HTTPError => e
         raise Inventory::ServiceError, "There was an error processing the request. This usually means that there was bad input (invalid store code or UPC): #{e.message}"
+      rescue Timeout::Error => e
+        retries -= 1
+        if retries > 0
+          retry
+        else
+          raise e
+        end
       end
     end
     
