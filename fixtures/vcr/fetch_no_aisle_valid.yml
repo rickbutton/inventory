@@ -1,0 +1,184 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://mobile.walmart.com/m/j?e=4&method=get&p1=&p2=%5B7239231925,7239231921%5D&p3=%5B2339%5D&p4=&p5=&p6=&p7=&p8=&p9=c4tch4spyder&service=Slap
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 04 Dec 2012 06:26:58 GMT
+      Server:
+      - Apache
+      Set-Cookie:
+      - JSESSIONID=639E0671BF1B85844497972C1F6D934B; Domain=.walmart.com; Path=/
+      - JSESSIONID=986ECDBC5EAA0DE72511C3B4FEE774A4; Path=/m; Secure
+      - MyStore=jplYOSsX3KvUHUpSQ4-bA6n0Pgo-qjZ8c3eGSC1Qxq-Fv0pJs45CWw*6BhDfANfq;
+        Domain=.walmart.com; Expires=Fri, 02-Dec-2022 06:26:58 GMT; Path=/
+      - WMSessionID=""; Domain=.walmart.com; Expires=Thu, 01-Jan-1970 00:00:10 GMT;
+        Path=/
+      - com.wm.anoncart=""; Domain=.walmart.com; Expires=Thu, 01-Jan-1970 00:00:10
+        GMT; Path=/
+      - com.wm.customer=""; Domain=.walmart.com; Expires=Thu, 01-Jan-1970 00:00:10
+        GMT; Path=/
+      - com.wm.simpleaccess=""; Domain=.walmart.com; Expires=Thu, 01-Jan-1970 00:00:10
+        GMT; Path=/
+      - com.wm.ssa=""; Domain=.walmart.com; Expires=Thu, 01-Jan-1970 00:00:10 GMT;
+        Path=/
+      - com.wm.visitor=""; Domain=.walmart.com; Expires=Thu, 01-Jan-1970 00:00:10
+        GMT; Path=/
+      - m_zdr=""; Domain=.walmart.com; Expires=Tue, 04-Dec-2012 06:56:58 GMT; Path=/
+      - mobile.env=PROD; Domain=.walmart.com; Expires=Fri, 02-Dec-2022 06:26:58 GMT;
+        Path=/
+      Expires:
+      - Tue, 04 Dec 2012 18:26:58 GMT
+      Cache-Control:
+      - private, no-cache, no-store
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - http://mobile.walmart.com
+      Access-Control-Allow-Max-Age:
+      - '86400'
+      Access-Control-Allow-Headers:
+      - X-Requested-With, Content-Type
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json
+    body:
+      encoding: US-ASCII
+      string: ! '[{"item":{"id":"10450920","name":"Hawaiian Punch: Fruit Juicy Red
+        Drink Mix, .74 Oz","productImageUrl":"http:\/\/i.walmartimages.com\/i\/p\/00\/07\/23\/92\/31\/0007239231921_215X215.jpg","upc":"0007239231921","signingDesc":"HAW
+        PUNCH SF 8CT SINGLES TO GO","sizeDesc":"8CT"},"stores":[{"distance":{"kilometers":"0.0","miles":"0.0"},"address":{"latLng":{"latitude":"40.4549","latLngValid":"true","longitude":"-86.9286"},"state":{"code":"IN","name":"Indiana"},"city":"West
+        Lafayette","country":"USA","street1":"2801 Northwestern Ave","street2":"","street3":"","zip":{"code":"47906","prefix":"47906","suffix":""}},"openDate":"1996-04-24T07:00:00+0000","phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"storeType":{"name":"Walmart
+        Supercenter"},"stockStatus":"Limited stock ","storeId":"2339","price":"1.0","availabilityForS2S":"","storeServices":[{"phone":{"allDigits":"7654639382","areaCode":"765","ext":"","prefix":"463","suffix":"9382"},"available":"true","localServiceOnly":"false","name":"Tire
+        &#38; Lube"}, {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"true","localServiceOnly":"true","name":"Subway&#174;"},
+        {"phone":{"allDigits":"7654630910","areaCode":"765","ext":"","prefix":"463","suffix":"0910"},"available":"true","localServiceOnly":"false","name":"Pharmacy"},
+        {"phone":{"allDigits":"7654637201","areaCode":"765","ext":"","prefix":"463","suffix":"7201"},"available":"true","localServiceOnly":"false","name":"Vision
+        Center"}, {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"true","localServiceOnly":"false","name":"Pharmacy
+        In Store Transfer"}, {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"true","localServiceOnly":"false","name":"Grocery"},
+        {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"true","localServiceOnly":"false","name":"Garden
+        Center"}, {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"true","localServiceOnly":"true","name":"Canopy
+        Home Collection (selection varies by store)"}, {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"true","localServiceOnly":"false","name":"Cell
+        Phones, Plans & More"}, {"phone":{"allDigits":"7654630612","areaCode":"765","ext":"","prefix":"463","suffix":"0612"},"available":"true","localServiceOnly":"false","name":"Photo
+        Center"}, {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"true","localServiceOnly":"false","name":"1
+        Hour Photo Center"}, {"phone":{"allDigits":"7654630985","areaCode":"765","ext":"","prefix":"463","suffix":"0985"},"available":"false","localServiceOnly":"false","name":"Portrait
+        Studio"}, {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"true","localServiceOnly":"false","name":"Same
+        Day Pickup Photo Center"}, {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"true","localServiceOnly":"false","name":"Pick
+        Up Today"}, {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"true","localServiceOnly":"false","name":"Free
+        Store Delivery"}, {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"true","localServiceOnly":"false","name":"Pay
+        In Person"}, {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"false","localServiceOnly":"false","name":"Maternity"},
+        {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"true","localServiceOnly":"false","name":"LEI_APPAREL"},
+        {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"true","localServiceOnly":"true","name":"Op
+        Apparel"}, {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"false","localServiceOnly":"false","name":"Gift
+        Registry"}, {"phone":{"allDigits":"7654630612","areaCode":"765","ext":"","prefix":"463","suffix":"0612"},"available":"true","localServiceOnly":"false","name":"Photo
+        Shipment Point"}]}],"storesWithinMiles":{"availableStoresNum":"1","distanceInMiles":"50"},"lastUpdatedTime":{}},
+        {"item":{"id":"11028260","name":"Jel Sert Company: Berry Blue Typhoon Low
+        Calorie Drink Mix Sugar Free Hawaiian Punch Singles To Go, .94 oz","productImageUrl":"http:\/\/i.walmartimages.com\/i\/p\/00\/07\/23\/92\/31\/0007239231925_215X215.jpg","upc":"0007239231925","signingDesc":"HP
+        SF 8CT BERRY BLUE TYPHOON","sizeDesc":"8CT"},"stores":[{"distance":{"kilometers":"0.0","miles":"0.0"},"address":{"latLng":{"latitude":"40.4549","latLngValid":"true","longitude":"-86.9286"},"state":{"code":"IN","name":"Indiana"},"city":"West
+        Lafayette","country":"USA","street1":"2801 Northwestern Ave","street2":"","street3":"","zip":{"code":"47906","prefix":"47906","suffix":""}},"openDate":"1996-04-24T07:00:00+0000","phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"storeType":{"name":"Walmart
+        Supercenter"},"stockStatus":"In stock","storeId":"2339","price":"1.0","availabilityForS2S":"","storeServices":[{"phone":{"allDigits":"7654639382","areaCode":"765","ext":"","prefix":"463","suffix":"9382"},"available":"true","localServiceOnly":"false","name":"Tire
+        &#38; Lube"}, {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"true","localServiceOnly":"true","name":"Subway&#174;"},
+        {"phone":{"allDigits":"7654630910","areaCode":"765","ext":"","prefix":"463","suffix":"0910"},"available":"true","localServiceOnly":"false","name":"Pharmacy"},
+        {"phone":{"allDigits":"7654637201","areaCode":"765","ext":"","prefix":"463","suffix":"7201"},"available":"true","localServiceOnly":"false","name":"Vision
+        Center"}, {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"true","localServiceOnly":"false","name":"Pharmacy
+        In Store Transfer"}, {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"true","localServiceOnly":"false","name":"Grocery"},
+        {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"true","localServiceOnly":"false","name":"Garden
+        Center"}, {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"true","localServiceOnly":"true","name":"Canopy
+        Home Collection (selection varies by store)"}, {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"true","localServiceOnly":"false","name":"Cell
+        Phones, Plans & More"}, {"phone":{"allDigits":"7654630612","areaCode":"765","ext":"","prefix":"463","suffix":"0612"},"available":"true","localServiceOnly":"false","name":"Photo
+        Center"}, {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"true","localServiceOnly":"false","name":"1
+        Hour Photo Center"}, {"phone":{"allDigits":"7654630985","areaCode":"765","ext":"","prefix":"463","suffix":"0985"},"available":"false","localServiceOnly":"false","name":"Portrait
+        Studio"}, {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"true","localServiceOnly":"false","name":"Same
+        Day Pickup Photo Center"}, {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"true","localServiceOnly":"false","name":"Pick
+        Up Today"}, {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"true","localServiceOnly":"false","name":"Free
+        Store Delivery"}, {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"true","localServiceOnly":"false","name":"Pay
+        In Person"}, {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"false","localServiceOnly":"false","name":"Maternity"},
+        {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"true","localServiceOnly":"false","name":"LEI_APPAREL"},
+        {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"true","localServiceOnly":"true","name":"Op
+        Apparel"}, {"phone":{"allDigits":"7654630201","areaCode":"765","ext":"","prefix":"463","suffix":"0201"},"available":"false","localServiceOnly":"false","name":"Gift
+        Registry"}, {"phone":{"allDigits":"7654630612","areaCode":"765","ext":"","prefix":"463","suffix":"0612"},"available":"true","localServiceOnly":"false","name":"Photo
+        Shipment Point"}]}],"storesWithinMiles":{"availableStoresNum":"1","distanceInMiles":"50"},"lastUpdatedTime":{}}]'
+    http_version: 
+  recorded_at: Tue, 04 Dec 2012 06:26:59 GMT
+- request:
+    method: get
+    uri: https://mobile.walmart.com/m/j?e=1&method=getLocationsByUPC&p1=2339&p2=%5B7239231925,7239231921%5D&service=AisleLocation
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 04 Dec 2012 06:26:59 GMT
+      Server:
+      - Apache
+      Set-Cookie:
+      - JSESSIONID=AAC76C0F3746B8D92CEEE6A4A3AE2405; Path=/m; Secure
+      - MyStore=1sNVCFHIGypLUd3AgeFprnRfuWzt0RKPojrK6nyWgMRv5Wez7Fw1k1wYeI4xTiUJ;
+        Domain=.walmart.com; Expires=Fri, 02-Dec-2022 06:27:00 GMT; Path=/
+      - WMSessionID=""; Domain=.walmart.com; Expires=Thu, 01-Jan-1970 00:00:10 GMT;
+        Path=/
+      - com.wm.anoncart=""; Domain=.walmart.com; Expires=Thu, 01-Jan-1970 00:00:10
+        GMT; Path=/
+      - com.wm.customer=""; Domain=.walmart.com; Expires=Thu, 01-Jan-1970 00:00:10
+        GMT; Path=/
+      - com.wm.simpleaccess=""; Domain=.walmart.com; Expires=Thu, 01-Jan-1970 00:00:10
+        GMT; Path=/
+      - com.wm.ssa=""; Domain=.walmart.com; Expires=Thu, 01-Jan-1970 00:00:10 GMT;
+        Path=/
+      - com.wm.visitor=""; Domain=.walmart.com; Expires=Thu, 01-Jan-1970 00:00:10
+        GMT; Path=/
+      - m_zdr=""; Domain=.walmart.com; Expires=Tue, 04-Dec-2012 06:57:00 GMT; Path=/
+      - mobile.env=PROD; Domain=.walmart.com; Expires=Fri, 02-Dec-2022 06:27:00 GMT;
+        Path=/
+      Expires:
+      - Wed, 05 Dec 2012 06:26:59 GMT
+      Cache-Control:
+      - private, no-cache, no-store
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - http://mobile.walmart.com
+      Access-Control-Allow-Max-Age:
+      - '86400'
+      Access-Control-Allow-Headers:
+      - X-Requested-With, Content-Type
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Content-Length:
+      - '191'
+      Content-Type:
+      - application/json
+    body:
+      encoding: US-ASCII
+      string: ! '{"locationsByUPC":[{"uPC":"7239231925"},
+        {"positionData":[{"zoneID":"A","aisleID":"14","sectionID":"19"}],"uPC":"7239231921"}]}'
+    http_version: 
+  recorded_at: Tue, 04 Dec 2012 06:27:01 GMT
+recorded_with: VCR 2.2.3

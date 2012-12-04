@@ -1,0 +1,248 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://mobile.walmart.com/m/j?e=4&method=get&p1=&p2=%5B123%5D&p3=%5B1%5D&p4=&p5=&p6=&p7=&p8=&p9=c4tch4spyder&service=Slap
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 503
+      message: Service Unavailable
+    headers:
+      Date:
+      - Tue, 04 Dec 2012 06:35:27 GMT
+      Server:
+      - Apache
+      Set-Cookie:
+      - JSESSIONID=24A66AB9A9129EFAB943896E02024383; Path=/m; Secure
+      - JSESSIONID=4BC7F7490EBB6C85175A5D866623AB44; Domain=.walmart.com; Path=/
+      - MyStore=tZxbNnHTiXOCHld*75fJpnyh303Dq1s4uGjRMZnRQo9eypH9wPlmeP-eUhN8-8Zp;
+        Domain=.walmart.com; Expires=Fri, 02-Dec-2022 06:35:28 GMT; Path=/
+      - WMSessionID=""; Domain=.walmart.com; Expires=Thu, 01-Jan-1970 00:00:10 GMT;
+        Path=/
+      - com.wm.anoncart=""; Domain=.walmart.com; Expires=Thu, 01-Jan-1970 00:00:10
+        GMT; Path=/
+      - com.wm.customer=""; Domain=.walmart.com; Expires=Thu, 01-Jan-1970 00:00:10
+        GMT; Path=/
+      - com.wm.simpleaccess=""; Domain=.walmart.com; Expires=Thu, 01-Jan-1970 00:00:10
+        GMT; Path=/
+      - com.wm.ssa=""; Domain=.walmart.com; Expires=Thu, 01-Jan-1970 00:00:10 GMT;
+        Path=/
+      - com.wm.visitor=""; Domain=.walmart.com; Expires=Thu, 01-Jan-1970 00:00:10
+        GMT; Path=/
+      - m_zdr=""; Domain=.walmart.com; Expires=Tue, 04-Dec-2012 07:05:28 GMT; Path=/
+      - mobile.env=PROD; Domain=.walmart.com; Expires=Fri, 02-Dec-2022 06:35:28 GMT;
+        Path=/
+      Expires:
+      - Tue, 04 Dec 2012 18:35:27 GMT
+      Cache-Control:
+      - no-cache, max-age=0, must-revalidate
+      Pragma:
+      - no-cache
+      Content-Language:
+      - en-US
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - http://mobile.walmart.com
+      Access-Control-Allow-Max-Age:
+      - '86400'
+      Access-Control-Allow-Headers:
+      - X-Requested-With, Content-Type
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS
+      Content-Length:
+      - '4252'
+      Connection:
+      - close
+      Content-Type:
+      - text/html;charset=UTF-8
+    body:
+      encoding: US-ASCII
+      string: ! '
+
+        <!DOCTYPE html PUBLIC "-//MOBILEAWARE//DTD MMXHTML 1.2//EN"
+
+        "http://www.mobileaware.com/DTD/mmxhtml_1.2.dtd">
+
+        <html>
+
+        <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <mm-structure id="include-and1" where="IsMenuDriven" idheader="header" idfooter="footer">
+
+        <mm-group-ref idref="main_body" type="normal" depth="flat" display="all" />
+
+        </mm-structure>
+
+
+        <style id="com-wm-mobile-web-pagepanels-PageHeaderPanel-0">
+
+        a {
+
+        text-decoration: none;
+
+        color:#1a75cf;
+
+        }
+
+        </style>
+
+        <script type="text/javascript"><!--/*--><![CDATA[/*><!--*/
+
+        var defaultSearchTerm = "";
+
+        /*-->]]>*/</script>
+
+
+        </head>
+
+        <body style="margin: 0px; font: 0.75em Verdana; color: #333333;">
+
+        <mm-group id="header" title="Header">
+
+        <div class="legacy">
+
+        <div style="">
+
+        <div>
+
+
+        </div>
+
+        <div id="headerLogoPanel" style="padding:7px; background-color: #0769cd; width:100%;">
+
+        <a href="/m/home?host=es56&amp;"><img class="" style="border-style:none;"
+        alt="Walmart" src="/r/images/icons/walmart-logo.png"/></a>
+
+        <div style="padding-top: 3px;">
+
+        <a href="http://mobile.walmart.com/m/home;jsessionid=24A66AB9A9129EFAB943896E02024383"
+        style="color: #FFFFFF; text-decoration: none;">Home |</a>
+
+        <a href="/m/search" style="color: #FFFFFF; text-decoration: none;">Search
+        | </a>
+
+        <a href="/m/storefinder" style="color: #FFFFFF; text-decoration: none;">Store
+        Finder | </a>
+
+
+        </div>
+
+        </div>
+
+        <div id="headerSearchPanel" style="background-color: #0769cd; padding-left:7px;
+        padding-bottom:10px;;display: none;">
+
+        <form method="get" id="id1" action="error;jsessionid=24A66AB9A9129EFAB943896E02024383"><div
+        style="width:0px;height:0px;position:absolute;left:-100px;top:-100px;overflow:hidden"><input
+        type="hidden" name="pageHeader_headerSearchPanel_searchForm_hf_0" id="pageHeader_headerSearchPanel_searchForm_hf_0"
+        /><input type="hidden" name="wicket:interface" value=":1:pageHeader:headerSearchPanel:searchForm::IFormSubmitListener::"
+        /></div>
+
+        <div style="vertical-align: bottom;">
+
+        <input type="text" value="" name="query" id="query"/>
+
+        <input type="submit" value="GO"/>
+
+        </div>
+
+        </form>
+
+        </div>
+
+        <div class="headerTitlePanel" style="color:#000000; width:100%; background-color:#dcdcdc;
+        padding: 4px; text-decoration:none; font-size:11px;  background:-webkit-gradient(linear,
+        left top, left bottom, from(#ffffff), to(#9c9c9c));">
+
+        <div style="position:absolute; right:0px; top:55px;"></div>
+
+
+        </div>
+
+        </div>
+
+        </div>
+
+        </mm-group>
+
+        <mm-group id="main_body" title="Main Body">
+
+
+        <div style="font-weight: bold; padding: 5px;">We were unable to fulfill your
+        request.</div>
+
+        <div style="padding: 5px; padding-bottom: 20px;">The server encountered an
+        unexpected error. Please try again in a few minutes</div>
+
+        <div style="margin-top: 40px; margin-bottom: 10px;padding-left:0px; padding-right:
+        0; background:#f5f5f5; padding:15px; border-top: 2px solid #d2d2d2; border-bottom:2px
+        solid #d2d2d2; text-align: center;">
+
+        <span style="margin-top: 18px;">
+
+        <a style="font-family: ''Myriad pro'',''Helvetica Neue'', Helvetica, sans-serif;
+        font-weight: bold; margin: 0 0 3px 0; color: #ffffff; text-decoration: none;
+        padding: 6px 29px; min-width: 113px; font-size: 15px;border: 1px solid #ccc
+        !important; color: #1a75cf; background-color: #fdfdfd;" href="http://mobile.walmart.com/m/home;jsessionid=24A66AB9A9129EFAB943896E02024383">OK</a>
+
+        </span>
+
+        </div>
+
+
+
+        </mm-group>
+
+        <mm-group id="footer" title="Footer">
+
+        <div id="main_footer" style="padding-left: 5px;">
+
+        <div style="padding-top: 5px; padding-bottom:5px; font: 11px Verdana;">
+
+        <div>
+
+        <a style="white-space: nowrap; text-decoration: none;"
+
+        href="http://www.walmart.com/index.gsp">Walmart.com full site | </a>
+
+        <a style="white-space: nowrap; text-decoration: none;" href="/m/storefinder">Store
+        Finder | </a>
+
+        <a style="white-space: nowrap; text-decoration: none;" href="http://mobile.opinionlab.com/EyWaYVuF?referer=https%3A%2F%2Fmobile.walmart.com%2Fm%2Fj%3Fservice%3DSlap%26method%3Dget%26p1%3D%26p2%3D%5B123%5D%26p3%3D%5B1%5D%26p4%3D%26p5%3D%26p6%3D%26p7%3D%26p8%3D%26p9%3Dc4tch4spyder%26e%3D4%26custom_var%3Dnull%7CL3%7C"
+        target="_blank">Feedback | </a>
+
+        <a style="white-space: nowrap; text-decoration: none;" href="/m/tos?host=es56&amp;">Terms
+        of use</a>
+
+
+        </div>
+
+        <div style="white-space: nowrap; ">&copy;&nbsp;2011 Wal-Mart Stores. Inc.</div>
+
+        </div>
+
+        </div>
+
+        </mm-group>
+
+        </body>
+
+        </html>
+
+'
+    http_version: 
+  recorded_at: Tue, 04 Dec 2012 06:35:29 GMT
+recorded_with: VCR 2.2.3
