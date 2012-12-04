@@ -2,7 +2,7 @@ require 'open-uri'
 require "json"
 
 
-USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1309.0 Safari/537.17"
+USER_AGENT = "walmart/1120 CFNetwork/548.1.4 Darwin/11.0.0"
 module Inventory
   class Walmart
     
@@ -29,7 +29,7 @@ private
   
   def get_products(store_id, *upcs)
     url = create_product_url(store_id, upcs)
-    json = JSON.parse(open(url).read)
+    json = JSON.parse(open(url, "User-Agent" => USER_AGENT).read)
     products = []
     json.each do |item|
       product = {
@@ -53,7 +53,7 @@ private
   
   def get_aisles(store_id, *upcs)
     url = create_aisle_url(store_id, upcs)
-    json = JSON.parse(open(url).read)
+    json = JSON.parse(open(url, "User-Agent" => USER_AGENT).read)
     aisles = {}
     json["locationsByUPC"].each do |product|
       aisles[product["uPC"].to_i] = product["positionData"] ? "#{product["positionData"][0]["zoneID"]}#{product["positionData"][0]["aisleID"]}" : false
