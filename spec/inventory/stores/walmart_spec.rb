@@ -40,5 +40,11 @@ describe Inventory::Walmart do
         products[1][:aisle].should be_false
       end
     end
+    it 'should make service calls with a timeout' do
+      VCR.use_cassette("fetch_multiple_valid") do
+        Inventory.should_receive(:try_with_timeout).twice
+        products = Inventory::Walmart.fetch(2339, 7239231925, 7239231921)
+      end
+    end
   end
 end

@@ -2,30 +2,19 @@ require 'open-uri'
 require "json"
 require "timeout"
 
-
 USER_AGENT = "walmart/1120 CFNetwork/548.1.4 Darwin/11.0.0"
-TIMEOUT_SECS = 5
-NUM_RETRIES = 3
+TIMEOUT_SECS = 2
+NUM_RETRIES = 2
 
 module Inventory
   class Walmart
     
     def self.fetch(store_id, *upcs)
       raise ArgumentError, "You must pass at least one UPC code into the fetch method" if upcs.empty?
-      retries = NUM_RETRIES
       begin
-        Timeout::timeout(TIMEOUT_SECS) do
-          get_products(store_id, upcs)
-        end
+        get_products(store_id, upcs)
       rescue OpenURI::HTTPError => e
         raise Inventory::ServiceError, "There was an error processing the request. This usually means that there was bad input (invalid store code or UPC): #{e.message}"
-      rescue Timeout::Error => e
-        retries -= 1
-        if retries > 0
-          retry
-        else
-          raise e
-        end
       end
     end
     
@@ -42,35 +31,42 @@ private
   end
   
   def get_products(store_id, *upcs)
-    url = create_product_url(store_id, upcs)
-    json = JSON.parse(open(url, "User-Agent" => USER_AGENT).read)
     products = []
-    json.each do |item|
-      product = {
-        upc:        item["item"]["upc"].to_i,
-        name:       item["item"]["name"],
-        image:      item["item"]["productImageUrl"],
-        store_code: item["stores"][0]["storeId"],
-        price:      item["stores"][0]["price"].to_f,
-        in_stock: item["stores"][0]["stockStatus"].strip == "In stock" || item["stores"][0]["stockStatus"].strip == "Limited stock"
-      }
-      products << product
+    
+    Inventory.try_with_timeout(TIMEOUT_SECS, NUM_RETRIES) do
+      url = create_product_url(store_id, upcs)
+      json = JSON.parse(open(url, "User-Agent" => USER_AGENT).read)
+      
+      json.each do |item|
+        product = {
+          upc:        item["item"]["upc"].to_i,
+          name:       item["item"]["name"],
+          image:      item["item"]["productImageUrl"],
+          store_code: item["stores"][0]["storeId"],
+          price:      item["stores"][0]["price"].to_f,
+          in_stock: item["stores"][0]["stockStatus"].strip == "In stock" || item["stores"][0]["stockStatus"].strip == "Limited stock"
+        }
+        products << product
+      end
     end
     
     aisles = get_aisles(store_id, upcs)
     products.each do |product|
       product[:aisle] = aisles[product[:upc]]
     end
-        
+    
     products
+
   end
   
   def get_aisles(store_id, *upcs)
-    url = create_aisle_url(store_id, upcs)
-    json = JSON.parse(open(url, "User-Agent" => USER_AGENT).read)
-    aisles = {}
-    json["locationsByUPC"].each do |product|
-      aisles[product["uPC"].to_i] = product["positionData"] ? "#{product["positionData"][0]["zoneID"]}#{product["positionData"][0]["aisleID"]}" : false
+    Inventory.try_with_timeout(TIMEOUT_SECS, NUM_RETRIES) do
+      url = create_aisle_url(store_id, upcs)
+      json = JSON.parse(open(url, "User-Agent" => USER_AGENT).read)
+      aisles = {}
+      json["locationsByUPC"].each do |product|
+        aisles[product["uPC"].to_i] = product["positionData"] ? "#{product["positionData"][0]["zoneID"]}#{product["positionData"][0]["aisleID"]}" : false
+      end
+      aisles
     end
-    aisles
   end
