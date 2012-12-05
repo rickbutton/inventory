@@ -3,7 +3,7 @@ require "json"
 require "timeout"
 
 USER_AGENT = "walmart/1120 CFNetwork/548.1.4 Darwin/11.0.0"
-TIMEOUT_SECS = 2
+TIMEOUT_SECS = 5
 NUM_RETRIES = 2
 
 module Inventory
