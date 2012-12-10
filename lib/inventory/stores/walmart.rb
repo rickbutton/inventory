@@ -1,6 +1,7 @@
 require 'open-uri'
 require "json"
 require "timeout"
+require "inventory/product"
 
 USER_AGENT = "walmart/1120 CFNetwork/548.1.4 Darwin/11.0.0"
 TIMEOUT_SECS = 5
@@ -8,6 +9,16 @@ NUM_RETRIES = 2
 
 module Inventory
   class Walmart
+    
+    class Product < Inventory::Product
+      
+      attribute :aisle, String
+      
+      def ==(p)
+        super && aisle == p.aisle
+      end
+      
+    end
     
     def self.fetch(store_id, *upcs)
       raise ArgumentError, "You must pass at least one UPC code into the fetch method" if upcs.empty?
@@ -38,14 +49,14 @@ private
       json = JSON.parse(open(url, "User-Agent" => USER_AGENT).read)
       
       json.each do |item|
-        product = {
+        product = Inventory::Walmart::Product.new(
           upc:        item["item"]["upc"].to_i,
           name:       item["item"]["name"],
           image:      item["item"]["productImageUrl"],
           store_code: item["stores"][0]["storeId"],
-          price:      item["stores"][0]["price"].to_f,
+          price:      (item["stores"][0]["price"].to_f*100).to_i,
           in_stock: item["stores"][0]["stockStatus"].strip == "In stock" || item["stores"][0]["stockStatus"].strip == "Limited stock"
-        }
+        )
         products << product
       end
     end
@@ -65,7 +76,7 @@ private
       json = JSON.parse(open(url, "User-Agent" => USER_AGENT).read)
       aisles = {}
       json["locationsByUPC"].each do |product|
-        aisles[product["uPC"].to_i] = product["positionData"] ? "#{product["positionData"][0]["zoneID"]}#{product["positionData"][0]["aisleID"]}" : false
+        aisles[product["uPC"].to_i] = product["positionData"] ? "#{product["positionData"][0]["zoneID"]}#{product["positionData"][0]["aisleID"]}" : nil
       end
       aisles
     end
