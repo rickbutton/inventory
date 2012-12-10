@@ -24,18 +24,9 @@ Or install it yourself as:
 2. Find the UPCs of the products you want to check. (Using 7239231921 in this example).
 
 ```
-Inventory.fetch(:walmart, store_id: 2339, upcs: [7239231921])
+Inventory::Walmart.fetch(2339, 7239231921)
 
-=> [
-    {
-     :upc=>7239231921,
-     :name=>"Hawaiian Punch: Fruit Juicy Red Drink Mix, .74 Oz",
-     :image=>"http://i.walmartimages.com/i/p/00/07/23/92/31/0007239231921_215X215.jpg",
-     :stores=>[{:id=>"2339", :price=>1.0, :in_stock=>true}],
-     :avg_price=>1.0,
-     :aisle=>"A14"
-    }
-   ]
+=> Inventory::Walmart::Product:  {:upc=>7239231921, :name=>"Hawaiian Punch: Fruit Juicy Red Drink Mix, .74 Oz",         :image=>"http://i.walmartimages.com/i/p/00/07/23/92/31/0007239231921_215X215.jpg", :store_code=>"2339", :price=>100, :in_stock=>true, :aisle=>"A14"}
 ```
 ## Contributing
 
