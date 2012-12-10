@@ -15,7 +15,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Inventory::VERSION
   
-  %w(rspec guard spork guard-spork guard-rspec rb-fsevent growl vcr webmock).each do |g|
+  %w(rspec guard spork guard-spork guard-rspec rb-fsevent growl vcr webmock rake).each do |g|
     gem.add_development_dependency g
   end
   %w(virtus).each do |g|
