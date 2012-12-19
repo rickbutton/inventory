@@ -2,20 +2,42 @@ require "spec_helper.rb"
 
 describe Inventory::Walmart do
   
-  describe Inventory::Walmart::Product do
-    it 'should have an aisle field' do
-      hash = {:upc=>7239231921,
-        :name=>"Hawaiian Punch: Fruit Juicy Red Drink Mix, .74 Oz",
-        :image=>"http://i.walmartimages.com/i/p/00/07/23/92/31/0007239231921_215X215.jpg",
-        :store_code=>"2339", 
+  before :each do 
+    @one = {
+      :upc=>7239231921,
+      :name=>"Hawaiian Punch: Fruit Juicy Red Drink Mix, .74 Oz",
+      :image=>"http://i.walmartimages.com/i/p/00/07/23/92/31/0007239231921_215X215.jpg",
+      :store_code=>"2339", 
+      :price=>100, 
+      :in_stock=>true,
+      :aisle=>"A14"}
+    @two = {
+        :upc=>7239231925,
+        :name=>"Jel Sert Company: Berry Blue Typhoon Low Calorie Drink Mix Sugar Free Hawaiian Punch Singles To Go, .94 oz",
+        :image=> "http://i.walmartimages.com/i/p/00/07/23/92/31/0007239231925_215X215.jpg",
+        :store_code=>"2339",
         :price=>100, 
         :in_stock=>true,
-        :aisle=>"A14"}
+        :aisle=>"A14"
+    }
+  end
+  
+  describe Inventory::Walmart::Product do
+    it 'should have an aisle field' do
       lambda {
-        p = Inventory::Walmart::Product.new(hash)
+        p = Inventory::Walmart::Product.new(@one)
         p.aisle.should eq "A14"
       }.should_not raise_error
     end
+  end
+  
+  it 'should check for the aisle field when checking equality' do
+    first  = Inventory::Walmart::Product.new(@one)
+    second = Inventory::Walmart::Product.new(@one)
+    
+    first.should eq second
+    second.aisle = "NEW"
+    first.should_not eq second
   end
 
   describe ".fetch" do
@@ -23,22 +45,7 @@ describe Inventory::Walmart do
       VCR.use_cassette('fetch_multiple_valid') do
         products = Inventory::Walmart.fetch(2339, 7239231925, 7239231921)
         products.size.should == 2
-        products.should =~ [Inventory::Walmart::Product.new(:upc=>7239231921,
-                      :name=>"Hawaiian Punch: Fruit Juicy Red Drink Mix, .74 Oz",
-                      :image=>"http://i.walmartimages.com/i/p/00/07/23/92/31/0007239231921_215X215.jpg",
-                      :store_code=>"2339", 
-                      :price=>100, 
-                      :in_stock=>true,
-                      :aisle=>"A14"),
-                     
-                     Inventory::Walmart::Product.new(:upc=>7239231925,
-                      :name=>"Jel Sert Company: Berry Blue Typhoon Low Calorie Drink Mix Sugar Free Hawaiian Punch Singles To Go, .94 oz",
-                      :image=> "http://i.walmartimages.com/i/p/00/07/23/92/31/0007239231925_215X215.jpg",
-                      :store_code=>"2339",
-                      :price=>100, 
-                      :in_stock=>true,
-                      :aisle=>"A14")
-                    ]
+        products.should =~ [Inventory::Walmart::Product.new(@one), Inventory::Walmart::Product.new(@two)]
       end
     end
     it 'should throw an error when there are no upcs' do

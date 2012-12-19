@@ -11,12 +11,7 @@ class Inventory::Product
     attribute :in_stock,   Boolean
    
     def ==(p)
-      upc == p.upc &&
-      name == p.name &&
-      image == p.image &&
-      store_code == p.store_code &&
-      price == p.price &&
-      in_stock == p.in_stock
+      attributes == p.attributes
     end
     
     def to_s

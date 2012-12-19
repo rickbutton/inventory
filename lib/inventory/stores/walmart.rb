@@ -14,10 +14,6 @@ module Inventory
       
       attribute :aisle, String
       
-      def ==(p)
-        super && aisle == p.aisle
-      end
-      
     end
     
     def self.fetch(store_id, *upcs)
