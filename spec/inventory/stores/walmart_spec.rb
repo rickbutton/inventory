@@ -6,37 +6,40 @@ describe Inventory::Walmart do
     @one = {
       :upc=>7239231921,
       :name=>"Hawaiian Punch: Fruit Juicy Red Drink Mix, .74 Oz",
-      :image=>"http://i.walmartimages.com/i/p/00/07/23/92/31/0007239231921_215X215.jpg",
-      :store_code=>"2339", 
+      :image=>"http://i.walmartimages.com/i/p/00/07/23/92/31/0007239231921_215X215.jpg", 
       :price=>100, 
       :in_stock=>true,
-      :aisle=>"A14"}
+      :extra_properties => {
+        :aisle=>"A14",
+        :store_code => "2339"
+      }}
     @two = {
         :upc=>7239231925,
         :name=>"Jel Sert Company: Berry Blue Typhoon Low Calorie Drink Mix Sugar Free Hawaiian Punch Singles To Go, .94 oz",
         :image=> "http://i.walmartimages.com/i/p/00/07/23/92/31/0007239231925_215X215.jpg",
-        :store_code=>"2339",
         :price=>100, 
         :in_stock=>true,
-        :aisle=>"A14"
-    }
+        :extra_properties => {
+          :aisle=>"A14",
+          :store_code => "2339"
+        }}
   end
   
-  describe Inventory::Walmart::Product do
+  describe Inventory::Product do
     it 'should have an aisle field' do
       lambda {
-        p = Inventory::Walmart::Product.new(@one)
-        p.aisle.should eq "A14"
+        p = Inventory::Product.new(@one)
+        p.extra_properties[:aisle].should eq "A14"
       }.should_not raise_error
     end
   end
   
   it 'should check for the aisle field when checking equality' do
-    first  = Inventory::Walmart::Product.new(@one)
-    second = Inventory::Walmart::Product.new(@one)
+    first  = Inventory::Product.new(@one)
+    second = Inventory::Product.new(@one)
     
     first.should eq second
-    second.aisle = "NEW"
+    second.extra_properties[:aisle] = "NEW"
     first.should_not eq second
   end
 
@@ -45,7 +48,7 @@ describe Inventory::Walmart do
       VCR.use_cassette('fetch_multiple_valid') do
         products = Inventory::Walmart.fetch(2339, 7239231925, 7239231921)
         products.size.should == 2
-        products.should =~ [Inventory::Walmart::Product.new(@one), Inventory::Walmart::Product.new(@two)]
+        products.should =~ [Inventory::Product.new(@one), Inventory::Product.new(@two)]
       end
     end
     it 'should throw an error when there are no upcs' do
@@ -59,7 +62,7 @@ describe Inventory::Walmart do
     it 'should have aisle:false for products without aisle information' do
       VCR.use_cassette("fetch_no_aisle_valid") do
         products = Inventory::Walmart.fetch(2339, 7239231925, 7239231921)
-        products[1][:aisle].should be_nil
+        products[1][:extra_properties][:aisle].should be_nil
       end
     end
     it 'should make service calls with a timeout' do

@@ -10,12 +10,6 @@ NUM_RETRIES = 2
 module Inventory
   class Walmart
     
-    class Product < Inventory::Product
-      
-      attribute :aisle, String
-      
-    end
-    
     def self.fetch(store_id, *upcs)
       raise ArgumentError, "You must pass at least one UPC code into the fetch method" if upcs.empty?
       begin
@@ -45,13 +39,15 @@ private
       json = JSON.parse(open(url, "User-Agent" => USER_AGENT).read)
       
       json.each do |item|
-        product = Inventory::Walmart::Product.new(
+        product = Inventory::Product.new(
           upc:        item["item"]["upc"].to_i,
           name:       item["item"]["name"],
           image:      item["item"]["productImageUrl"],
-          store_code: item["stores"][0]["storeId"],
           price:      (item["stores"][0]["price"].to_f*100).to_i,
-          in_stock: item["stores"][0]["stockStatus"].strip == "In stock" || item["stores"][0]["stockStatus"].strip == "Limited stock"
+          in_stock: item["stores"][0]["stockStatus"].strip == "In stock" || item["stores"][0]["stockStatus"].strip == "Limited stock",
+          extra_properties: {
+            store_code: item["stores"][0]["storeId"],
+          }
         )
         products << product
       end
@@ -59,7 +55,7 @@ private
     
     aisles = get_aisles(store_id, upcs)
     products.each do |product|
-      product[:aisle] = aisles[product[:upc]]
+      product[:extra_properties][:aisle] = aisles[product[:upc]]
     end
     
     products
