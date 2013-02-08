@@ -4,7 +4,7 @@ require "timeout"
 require "inventory/product"
 
 USER_AGENT = "walmart/1120 CFNetwork/548.1.4 Darwin/11.0.0"
-TIMEOUT_SECS = 5
+TIMEOUT_SECS = 10
 NUM_RETRIES = 2
 
 module Inventory
